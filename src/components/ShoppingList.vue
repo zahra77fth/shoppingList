@@ -21,7 +21,6 @@
       </li>
     </ul>
 
-    <!-- Input section that is fixed only on mobile -->
     <div class="flex gap-2 bottom-0 bg-orange-300 md:bg-transparent left-0 right-0 p-4 md:relative md:bottom-auto md:left-auto md:right-auto md:p-8">
       <input
           v-model="newItem"
