@@ -44,9 +44,6 @@ src/
 ├── types/
 │   └── types.ts               # TypeScript types and interfaces for the app
 │
-├── assets/                    # Static assets like images, stylesheets, etc.
-│   └── fallback.png            # Fallback image used for products without images
-│
 ├── App.vue                    
 ├── main.ts                    
 ├── styles.css                 
