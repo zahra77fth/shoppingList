@@ -3,6 +3,7 @@
   "private": true,
   "version": "0.0.0",
   "type": "module",
+  "homepage": "https://zahra77fth.github.io/shoppingList/",
   "scripts": {
     "dev": "vite",
     "build": "vue-tsc -b && vite build",
