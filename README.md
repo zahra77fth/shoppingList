@@ -53,6 +53,10 @@ src/
 └── vite.config.ts             # Vite configuration file
 ```
 
+## Live demo
+you can use live demo of project here : [Demo](https://zahra77fth.github.io/shoppingList/)
+
+
 ## Thank You! 🎉
 
 Thanks a bunch for checking out the Shopping List app! I hope it helps keep your groceries (and sanity) in check. 🛒💡
