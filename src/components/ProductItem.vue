@@ -3,8 +3,9 @@
     <div class="w-10 h-10 bg-gray-300 rounded mr-4">
       <img
           class="object-cover w-full h-full rounded"
-          :src="product.base64Image ? product.base64Image : '/assets/fallback.png'"
+          :data-src="product.base64Image ? product.base64Image : '/assets/fallback.png'"
           alt="Product"
+          ref="lazyImage"
       />
     </div>
 
@@ -31,7 +32,7 @@
 </template>
 
 <script lang="ts">
-import { defineComponent, PropType } from 'vue';
+import { defineComponent, PropType, onMounted, ref } from 'vue';
 import { Product } from '../types/types.ts';
 
 export default defineComponent({
@@ -41,6 +42,35 @@ export default defineComponent({
       type: Object as PropType<Product>,
       required: true,
     },
+  },
+  setup() {
+    const lazyImage = ref<HTMLImageElement | null>(null);
+
+    const loadImage = (image: HTMLImageElement) => {
+      const src = image.getAttribute('data-src');
+      if (src) {
+        image.src = src;
+        image.removeAttribute('data-src');
+      }
+    };
+
+    onMounted(() => {
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            const image = entry.target as HTMLImageElement;
+            loadImage(image);
+            observer.unobserve(image);
+          }
+        });
+      });
+
+      if (lazyImage.value) {
+        observer.observe(lazyImage.value);
+      }
+    });
+
+    return { lazyImage };
   },
 });
 </script>

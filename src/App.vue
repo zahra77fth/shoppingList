@@ -1,6 +1,5 @@
 <template>
-  <div class="container mx-auto p-4">
-    <h1 class="text-2xl font-bold text-center mb-6">Shopping List App</h1>
+  <div class="container">
     <ShoppingList />
   </div>
 </template>
